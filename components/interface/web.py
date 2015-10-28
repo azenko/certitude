@@ -769,12 +769,12 @@ def scanbatchDelete(batchid):
 
         if xi is None:
             flash('This ScanBatch does not exist')
-            return redirect(url_for('config'))
+            return redirect(url_for('scan'))
 
         dbsession.delete(xi)
         dbsession.commit()
 
-        return redirect(url_for('config'))
+        return redirect(url_for('scan'))
     else:
         return redirect(url_for('login'))
 
