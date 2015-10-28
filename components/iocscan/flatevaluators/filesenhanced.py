@@ -4,7 +4,7 @@ import template
 
 class Evaluator(template.EvaluatorInterface):
 
-    evalList = ['Md5sum', 'StringList']
+    evalList = ['Md5sum', 'StringList/string']
 
     def __init__(self, logger, ioc, remoteCommand, wd, keepFiles, confidential, dirname):
         template.EvaluatorInterface.__init__(self, logger, ioc, remoteCommand, wd, keepFiles, confidential, dirname)
