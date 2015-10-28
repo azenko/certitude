@@ -73,6 +73,8 @@ DR_PLUS_DIR = 'DR_PLUS'
 dropList = [
     [os.path.join('resources','gzip.exe'), 'gzip.exe'],
     [os.path.join('resources','tar.exe'), 'tar.exe'],
+    [os.path.join('resources', 'strings.exe'), 'strings.exe'],
+    [os.path.join('resources', 'md5.exe'), 'md5.exe'],
     [os.path.join('resources','collecte.tar.gz'), 'collecte.tar.gz'],
     [os.path.join('resources','import_sql.tar.gz'), 'import_sql.tar.gz'],
     [os.path.join('resources','rmtar.bat'), 'rmtar.bat'],
