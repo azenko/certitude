@@ -13,9 +13,25 @@ def getFiles():
     # Only get local dries
 	drives = [ d for d in drives if win32file.GetDriveType(d)==win32file.DRIVE_FIXED ]
 	
+	files = ""
+
     # List files
 	for drive in drives:
-		print os.popen('dir /s /b '+drive).read()
+		files += os.popen('dir /s /b '+drive).read()
+
+	files = files.split("\n")
+
+	for tfile in files:
+		resultline = ""
+		resultline = tfile + "#"
+		resultline += os.popen('md5 -n ' +tfile).read()
+		if resultline[-1] == "#":
+			resultline = resultline + "#"
+		else:
+			resultline = resultline[:-1] + "#"
+		resultline += os.popen('strings -nh -raw ' +tfile).read()
+		#resultline += base64.b64encode(os.popen('strings ' +tfile).read())
+		print resultline
 	
 def main():
 

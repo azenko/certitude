@@ -16,7 +16,6 @@ collectors = {
     'getarp':getarp,
     'getdns':getdns,
     'getfiles':getfiles,
-    'getfilesenhanced':getfilesenhanced,
     'getport':getport,
     'getprefetch':getprefetch,
     'getprocess':getprocess,

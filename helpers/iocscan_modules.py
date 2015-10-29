@@ -7,7 +7,6 @@ import components.iocscan.logicevaluators.result as LogicEvltResult
 flatModuleList = [('ServiceItem','services'),
                     ('RegistryItem','registry'),
                     ('FileItem','files'),
-                    ('FileEnhanced', 'filesenhanced'),
                     ('ArpEntryItem','arp'),
                     ('DnsEntryItem','dns'),
                     ('PortItem','port'),
