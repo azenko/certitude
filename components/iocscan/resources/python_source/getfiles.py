@@ -1,6 +1,13 @@
 #!/usr/bin/python
 
-import os, re, win32api, win32file, sys, base64
+import os, re, win32api, win32file, sys, base64, hashlib
+
+def hashfile(afile, hasher, blocksize=65536):
+    buf = afile.read(blocksize)
+    while len(buf) > 0:
+        hasher.update(buf)
+        buf = afile.read(blocksize)
+    return hasher.digest()
 
 def getFiles():
 
