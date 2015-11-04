@@ -25,15 +25,16 @@ def getFiles():
 	files = files.split("\n")
 
 	for tfile in files:
-		resultline = ""
-		resultline = tfile + "|"
-		resultline += os.popen('md5 -n "' + tfile + '"').read()
-		if resultline[-1] == "|":
-			resultline = resultline + "|"
-		else:
-			resultline = resultline[:-1] + "|"
-		resultline += base64.b64encode(os.popen('strings -q "' + tfile + '"').read())
-		print resultline
+		if not "C:\Windows\CERTitude-active" in tfile:
+			resultline = ""
+			resultline = tfile + "|"
+			resultline += os.popen('md5 -n "' + tfile + '"').read()
+			if resultline[-1] == "|":
+				resultline = resultline + "|"
+			else:
+				resultline = resultline[:-1] + "|"
+			resultline += base64.b64encode(os.popen('strings -q "' + tfile + '"').read())
+			print resultline
 	
 def main():
 
