@@ -103,7 +103,7 @@ class EvaluatorInterface:
 
         getCmd = 'launch.bat %(command)s' % {'command':command}
 
-        if self.__dbName == "files":
+        if self.__dbName == "files.db":
             # CData collection
             self.__initFiles = {
                 self.__dbName : {
