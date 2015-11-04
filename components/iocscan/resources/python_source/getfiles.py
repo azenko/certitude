@@ -1,11 +1,14 @@
 #!/usr/bin/python
 
-import os, re, win32api, win32file, sys
+import os, re, win32api, win32file, sys, base64
 
 def getFiles():
 
 	ret = []
 	
+	# Authorize Strings
+	os.popen('reg.exe ADD "HKCU\Software\Sysinternals\Strings" /v EulaAccepted /t REG_DWORD /d 1 /f')
+
     # List logical drives
 	drives = win32api.GetLogicalDriveStrings().split('\x00')
 	drives.pop()
@@ -23,14 +26,13 @@ def getFiles():
 
 	for tfile in files:
 		resultline = ""
-		resultline = tfile + "#"
-		resultline += os.popen('md5 -n ' +tfile).read()
-		if resultline[-1] == "#":
-			resultline = resultline + "#"
+		resultline = tfile + "|"
+		resultline += os.popen('md5 -n "' + tfile + '"').read()
+		if resultline[-1] == "|":
+			resultline = resultline + "|"
 		else:
-			resultline = resultline[:-1] + "#"
-		resultline += os.popen('strings -nh -raw ' +tfile).read()
-		#resultline += base64.b64encode(os.popen('strings ' +tfile).read())
+			resultline = resultline[:-1] + "|"
+		resultline += base64.b64encode(os.popen('strings -q "' + tfile + '"').read())
 		print resultline
 	
 def main():
